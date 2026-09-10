@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hizmetlerimiz — Babil Cam</title>
+<meta name="description" content="Cam kesimi, temperleme, ayna imalatı, özel ölçü üretim ve montaj dahil Babil Cam hizmetleri.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .svc{
+    display:grid;
+    grid-template-columns: 120px 1fr;
+    gap: 30px;
+    padding: 44px 0;
+    border-top: 1px solid var(--line-dark);
+    align-items:start;
+  }
+  .svc:last-child{ border-bottom: 1px solid var(--line-dark); }
+  .svc-icon{ width:100%; }
+  .svc h3{ margin-bottom: 10px; }
+  .svc ul.tags{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+  .svc ul.tags li{
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border: 1px solid var(--line-dark);
+    color: #57544e;
+  }
+  @media (max-width:640px){
+    .svc{ grid-template-columns: 60px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <span class="dot"></span>
+      <span class="logo-text">BABİL CAM<span class="sub">CAM · AYNA · İMALAT</span></span>
+    </a>
+    <nav class="nav-main" id="nav-main">
+      <a href="index.html">Anasayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="hizmetlerimiz.html" aria-current="page">Hizmetlerimiz</a>
+      <a href="projelerimiz.html">Projelerimiz</a>
+      <a href="iletisim.html">İletişim</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+903240000000">0324 000 00 00</a>
+      <a href="iletisim.html" class="btn btn-primary">Teklif Al</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menüyü aç" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-header">
+    <div class="wrap">
+      <span class="eyebrow">Hizmetlerimiz</span>
+      <h1 style="max-width:18ch;">Kesimden montaja,<br>tek adreste.</h1>
+      <p class="lead" style="max-width:56ch;">Ölçü almadan teslimata kadar sürecin her adımını kendi atölyemizde yürütüyoruz — aracı yok, tahmini ölçü yok.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+
+      <div class="svc" data-reveal>
+        <svg class="svc-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="10" y="10" width="80" height="80" fill="none" stroke="#0a0a0a" stroke-width="1"/>
+          <line x1="10" y1="90" x2="90" y2="10" stroke="#ff5a1f" stroke-width="1.6" stroke-dasharray="4 4"/>
+          <circle cx="10" cy="90" r="3" fill="#0a0a0a"/>
+          <circle cx="90" cy="10" r="3" fill="#0a0a0a"/>
+        </svg>
+        <div>
+          <h3>Özel Ölçü Cam Kesim</h3>
+          <p>Dresuar, vitrin, raf ve masa üstleri için milimetrik hassasiyette kesim. Düz kenar, pah kenar veya yuvarlatılmış köşe seçenekleriyle üretilir.</p>
+          <ul class="tags">
+            <li>Düz kesim</li><li>Pah kenar</li><li>Yuvarlak köşe</li><li>Delik/oyuk işleme</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc" data-reveal>
+        <svg class="svc-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="15" y="15" width="70" height="70" fill="none" stroke="#0a0a0a" stroke-width="1"/>
+          <circle cx="30" cy="30" r="3" fill="#ff5a1f"/>
+          <circle cx="50" cy="30" r="3" fill="#ff5a1f"/>
+          <circle cx="70" cy="30" r="3" fill="#ff5a1f"/>
+          <circle cx="30" cy="50" r="3" fill="#ff5a1f"/>
+          <circle cx="50" cy="50" r="3" fill="#ff5a1f"/>
+          <circle cx="70" cy="50" r="3" fill="#ff5a1f"/>
+          <circle cx="30" cy="70" r="3" fill="#ff5a1f"/>
+          <circle cx="50" cy="70" r="3" fill="#ff5a1f"/>
+          <circle cx="70" cy="70" r="3" fill="#ff5a1f"/>
+        </svg>
+        <div>
+          <h3>Temperleme (Güvenlik Camı)</h3>
+          <p>Kırıldığında keskin parçalara ayrılmayan, ısıl işlemle güçlendirilmiş temperli cam üretimi. Tüm sipariş türlerinde standart olarak uygulanır.</p>
+          <ul class="tags">
+            <li>Isıl işlem</li><li>Darbe dayanımı</li><li>Sertifikalı üretim</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc" data-reveal>
+        <svg class="svc-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="14" y="14" width="72" height="72" fill="none" stroke="#0a0a0a" stroke-width="1"/>
+          <rect x="24" y="24" width="52" height="52" fill="none" stroke="#ff5a1f" stroke-width="1.2"/>
+          <line x1="24" y1="76" x2="76" y2="24" stroke="#ff5a1f" stroke-width="0.8" stroke-dasharray="1 4"/>
+        </svg>
+        <div>
+          <h3>Ayna İmalatı</h3>
+          <p>Salon, banyo, koridor ve giyinme odaları için özel ölçü ayna üretimi. İstenirse buğu önleyici kaplama ve LED aydınlatma entegre edilir.</p>
+          <ul class="tags">
+            <li>Buğu önleyici</li><li>LED entegresi</li><li>Bantlı/çerçevesiz montaj</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc" data-reveal>
+        <svg class="svc-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="50" cy="50" r="36" fill="none" stroke="#0a0a0a" stroke-width="1"/>
+          <line x1="50" y1="50" x2="50" y2="26" stroke="#ff5a1f" stroke-width="1.6"/>
+          <line x1="50" y1="50" x2="68" y2="58" stroke="#0a0a0a" stroke-width="1.4"/>
+          <circle cx="50" cy="50" r="2.4" fill="#0a0a0a"/>
+        </svg>
+        <div>
+          <h3>Dekoratif Saat &amp; Tablo Üretimi</h3>
+          <p>Katmanlı ve renkli cam kullanılarak üretilen, duvara özel tasarlanan saat ve tablo panelleri. Baskı, renkli folyo ve gölye kesim seçenekleri mevcuttur.</p>
+          <ul class="tags">
+            <li>Katmanlı cam</li><li>Baskı/renk</li><li>Özel şekil kesim</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="svc" data-reveal>
+        <svg class="svc-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20 80 L50 20 L80 80 Z" fill="none" stroke="#0a0a0a" stroke-width="1"/>
+          <line x1="35" y1="55" x2="65" y2="55" stroke="#ff5a1f" stroke-width="1.4"/>
+        </svg>
+        <div>
+          <h3>Yerinde Montaj</h3>
+          <p>Kesimi yapan ekip, ürünü mekânınızda monte eder ve kalite kontrolünü sizinle birlikte yapar. Ayrı bir montaj ekibi devreye girmez.</p>
+          <ul class="tags">
+            <li>Aynı gün planlama</li><li>Terazi kontrolü</li><li>2 yıl garanti</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--panel">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2>Sık sorulan sorular</h2>
+        <p>Teklif almadan önce merak edilen başlıklar.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="panel" data-reveal>
+          <h3>Ölçüyü kendim verebilir miyim?</h3>
+          <p>Kendi ölçünüzle sipariş verebilirsiniz, ancak temperli camda tolerans payı bırakmadığımız için yerinde ölçüm önermekteyiz.</p>
+        </div>
+        <div class="panel" data-reveal>
+          <h3>Üretim süresi ne kadar?</h3>
+          <p>Standart ölçü camlarda 3-5 iş günü, özel baskı ve renk uygulamalı saat/tablo ürünlerinde 7-10 iş günü sürmektedir.</p>
+        </div>
+        <div class="panel" data-reveal>
+          <h3>Şehir dışına gönderim yapıyor musunuz?</h3>
+          <p>Evet, özel paketleme ile yurt içi gönderim yapıyoruz; büyük ölçü ayna ve dresuar camlarında montajı olmayan bölgeler için teslim sonrası kurulum kılavuzu sunuyoruz.</p>
+        </div>
+        <div class="panel" data-reveal>
+          <h3>Garanti kapsamı nedir?</h3>
+          <p>Montajı bizim yaptığımız ürünlerde 2 yıl kırılma ve işçilik garantisi geçerlidir; garanti belgesi teslimatla birlikte verilir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="wrap">
+      <h2>Hangi hizmete ihtiyacınız var, birlikte belirleyelim.</h2>
+      <a href="iletisim.html" class="btn" style="border-color:#0a0a0a;">Teklif Alın</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color:#f5f3ef;">
+          <span class="dot"></span>
+          <span class="logo-text">BABİL CAM<span class="sub" style="color:#a7a49e;">CAM · AYNA · İMALAT</span></span>
+        </a>
+        <p>Mersin merkezli atölyemizde dresuar camı, ayna, saat ve tablo üretimi yapıyor; bölgenize özel ölçü ve montaj hizmeti sunuyoruz.</p>
+      </div>
+      <div>
+        <h4>Sayfalar</h4>
+        <ul>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
+          <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+          <li><a href="projelerimiz.html">Projelerimiz</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ürünler</h4>
+        <ul>
+          <li><a href="projelerimiz.html#dresuar">Dresuar Camı</a></li>
+          <li><a href="projelerimiz.html#ayna">Ayna Cam</a></li>
+          <li><a href="projelerimiz.html#saat">Cam Saat</a></li>
+          <li><a href="projelerimiz.html#tablo">Tablo Cam</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+903240000000">0324 000 00 00</a></li>
+          <li><a href="mailto:info@babilcam.com">info@babilcam.com</a></li>
+          <li>Mersin, Türkiye</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Babil Cam. Tüm hakları saklıdır.</span>
+      <span>Atölyeden mekânınıza, milimetre hassasiyetiyle.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
