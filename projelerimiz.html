@@ -1,21 +1,294 @@
-<!-- Navbar aynı kalacak -->
-<section class="section-padding" style="margin-top: 100px;">
-    <div class="container">
-        <h1 class="reveal fade-bottom">Projelerimiz</h1>
-        
-        <!-- Dresuar Bölümü -->
-        <div id="dresuar" class="reveal fade-bottom">
-            <h2 class="highlight">Dresuar Tasarımları</h2>
-            <!-- Buraya grid yapısında dresuar görsellerini dizebilirsin -->
-        </div>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projelerimiz — Babil Cam</title>
+<meta name="description" content="Babil Cam atölyesinden çıkan dresuar, ayna, tablo ve saat projelerimizi inceleyin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-        <!-- Ayna Bölümü -->
-        <div id="ayna-cam" class="reveal fade-bottom" style="margin-top: 80px;">
-            <h2 class="highlight">Ayna & Cam</h2>
-            <!-- Buraya ayna görselleri -->
+<style>
+  /* --- Pop-up (Modal) Tasarımı (Performans Odaklı Güncelleme) --- */
+  .modal-overlay {
+    position: fixed; inset: 0; 
+    background: rgba(10, 10, 10, 0.98); 
+    z-index: 999; 
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; 
+    transition: opacity 0.3s ease-out;
+    will-change: opacity;
+  }
+  .modal-overlay.is-active { 
+    opacity: 1; pointer-events: auto; 
+  }
+  .modal-container {
+    background: var(--bone); 
+    width: 95%; max-width: 1100px; max-height: 85vh;
+    overflow-y: auto; position: relative; 
+    padding: clamp(30px, 5vw, 60px); 
+    border-top: 3px solid var(--orange);
+    transform: translateY(30px);
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+  }
+  .modal-overlay.is-active .modal-container {
+    transform: translateY(0);
+  }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px; 
+    font-family: var(--font-head); font-size: 0.85rem; font-weight: 600;
+    color: var(--black); border: 1px solid var(--line-dark);
+    padding: 10px 20px; cursor: pointer; background: transparent;
+    transition: all 0.2s ease;
+  }
+  .modal-close:hover { 
+    background: var(--black); color: var(--bone); border-color: var(--black);
+  }
+  .modal-title { 
+    font-family: var(--font-head); font-size: clamp(1.8rem, 3vw, 2.4rem); 
+    margin-bottom: 30px; color: var(--black); 
+  }
+  
+  /* Fotoğraf Grid Alanı */
+  .modal-grid { 
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; 
+  }
+  .modal-img-placeholder {
+    aspect-ratio: 4/3; background: var(--stone); 
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-body); color: #7a776f; font-size: 0.9rem; 
+    border: 1px dashed #a7a49e; overflow: hidden;
+  }
+  .modal-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+  
+  .project-panel { cursor: pointer; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">
+      <img src="babilcamlogo.webp" alt="Babil Cam" style="height: 48px; width: auto;">
+    </a>
+    <nav class="nav-main" id="nav-main">
+      <a href="index.html">Anasayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="hizmetlerimiz.html">Hizmetlerimiz</a>
+      <a href="projelerimiz.html" aria-current="page">Projelerimiz</a>
+      <a href="iletisim.html">İletişim</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+903240000000">0324 000 00 00</a>
+      <a href="iletisim.html" class="btn btn-primary">Teklif Al</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menüyü aç" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-header">
+    <div class="wrap">
+      <span class="eyebrow">Projelerimiz</span>
+      <h1 style="max-width:18ch;">Ölçüye özel üretimlerimiz.</h1>
+      <p class="lead" style="max-width:56ch;">Mekânın ihtiyacına ve tarzına göre özel olarak ürettiğimiz cam projelerini incelemek için kategorilere tıklayın.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid-2">
+        <!-- Dresuar -->
+        <div class="panel project-panel" onclick="openModal('modal-dresuar')" data-reveal>
+          <span class="panel-num">01</span>
+          <h3>Dresuar Projelerimiz</h3>
+          <p>Vitrin ve dresuar üstleri için darbeye dayanıklı, milimetrik kesim cam uygulamalarımız. Görselleri incelemek için tıklayın.</p>
         </div>
         
-        <!-- Saat ve Tablo için de aynı divleri kopyala -->
+        <!-- Ayna -->
+        <div class="panel project-panel" onclick="openModal('modal-ayna')" data-reveal>
+          <span class="panel-num">02</span>
+          <h3>Ayna Cam Projelerimiz</h3>
+          <p>Salon, banyo ve giyinme odaları için buğu önleyici ve LED entegreli ayna projelerimiz. Görselleri incelemek için tıklayın.</p>
+        </div>
+        
+        <!-- Tablo -->
+        <div class="panel project-panel" onclick="openModal('modal-tablo')" data-reveal>
+          <span class="panel-num">03</span>
+          <h3>Tablo Projelerimiz</h3>
+          <p>Baskılı ve renkli katmanlarla üretilen dekoratif cam duvar panellerimiz. Görselleri incelemek için tıklayın.</p>
+        </div>
+        
+        <!-- Saat -->
+        <div class="panel project-panel" onclick="openModal('modal-saat')" data-reveal>
+          <span class="panel-num">04</span>
+          <h3>Saat Projelerimiz</h3>
+          <p>Duvara asılan, katmanlı camdan üretilen dekoratif saat tasarımlarımız. Görselleri incelemek için tıklayın.</p>
+        </div>
+      </div>
     </div>
-</section>
-<!-- Footer aynı kalacak -->
+  </section>
+
+  <!-- ================= MODALS (POP-UP) ================= -->
+  
+  <!-- Dresuar Modal -->
+  <div class="modal-overlay" id="modal-dresuar">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-dresuar')">KAPAT</button>
+      <h2 class="modal-title">Dresuar Projelerimiz</h2>
+      <!-- Dinamik olarak JS ile doldurulacak -->
+      <div class="modal-grid" id="grid-dresuar"></div>
+    </div>
+  </div>
+
+  <!-- Ayna Modal -->
+  <div class="modal-overlay" id="modal-ayna">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-ayna')">KAPAT</button>
+      <h2 class="modal-title">Ayna Cam Projelerimiz</h2>
+      <!-- Dinamik olarak JS ile doldurulacak -->
+      <div class="modal-grid" id="grid-ayna"></div>
+    </div>
+  </div>
+
+  <!-- Tablo Modal (İleride eklenebilir diye yer tutucular bırakıldı) -->
+  <div class="modal-overlay" id="modal-tablo">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-tablo')">KAPAT</button>
+      <h2 class="modal-title">Tablo Projelerimiz</h2>
+      <div class="modal-grid">
+        <div class="modal-img-placeholder">Fotoğraf Eklenecek</div>
+        <div class="modal-img-placeholder">Fotoğraf Eklenecek</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Saat Modal (İleride eklenebilir diye yer tutucular bırakıldı) -->
+  <div class="modal-overlay" id="modal-saat">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-saat')">KAPAT</button>
+      <h2 class="modal-title">Saat Projelerimiz</h2>
+      <div class="modal-grid">
+        <div class="modal-img-placeholder">Fotoğraf Eklenecek</div>
+        <div class="modal-img-placeholder">Fotoğraf Eklenecek</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" style="color:#f5f3ef;">
+          <span class="dot"></span>
+          <span class="logo-text">BABİL CAM<span class="sub" style="color:#a7a49e;">CAM · AYNA · İMALAT</span></span>
+        </a>
+        <p>Mersin merkezli atölyemizde dresuar camı, ayna, saat ve tablo üretimi yapıyor; bölgenize özel ölçü ve montaj hizmeti sunuyoruz.</p>
+      </div>
+      <div>
+        <h4>Sayfalar</h4>
+        <ul>
+          <li><a href="hakkimizda.html">Hakkımızda</a></li>
+          <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
+          <li><a href="projelerimiz.html">Projelerimiz</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ürünler</h4>
+        <ul>
+          <li><a href="projelerimiz.html">Dresuar Camı</a></li>
+          <li><a href="projelerimiz.html">Ayna Cam</a></li>
+          <li><a href="projelerimiz.html">Cam Saat</a></li>
+          <li><a href="projelerimiz.html">Tablo Cam</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>İletişim</h4>
+        <ul>
+          <li><a href="tel:+903240000000">0324 000 00 00</a></li>
+          <li><a href="mailto:info@babilcam.com">info@babilcam.com</a></li>
+          <li>Mersin, Türkiye</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Babil Cam. Tüm hakları saklıdır.</span>
+      <span>Atölyeden mekânınıza, milimetre hassasiyetiyle.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Modal (Pop-up) Kontrolleri
+  function getScrollbarWidth() {
+    return window.innerWidth - document.documentElement.clientWidth;
+  }
+
+  function openModal(modalId) {
+    const scrollbarWidth = getScrollbarWidth();
+    document.body.style.paddingRight = scrollbarWidth + 'px';
+    document.body.style.overflow = 'hidden'; 
+    document.getElementById(modalId).classList.add('is-active');
+  }
+  
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('is-active');
+    setTimeout(() => {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }, 300);
+  }
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if(e.target === this) {
+        closeModal(this.id);
+      }
+    });
+  });
+
+  // --- FOTOĞRAFLARI OTOMATİK YÜKLEYEN SCRİPT ---
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Ayna/Cam Görselleri (cam klasörü, 1'den 57'ye kadar)
+    const aynaGrid = document.getElementById('grid-ayna');
+    if (aynaGrid) {
+      let aynaHTML = '';
+      for (let i = 1; i <= 57; i++) {
+        aynaHTML += `
+          <div class="modal-img-placeholder">
+            <img src="cam/${i}.webp" loading="lazy" alt="Ayna Projesi ${i}">
+          </div>
+        `;
+      }
+      aynaGrid.innerHTML = aynaHTML;
+    }
+
+    // 2. Dresuar Görselleri (dresuar klasörü, 58'den 102'ye kadar)
+    const dresuarGrid = document.getElementById('grid-dresuar');
+    if (dresuarGrid) {
+      let dresuarHTML = '';
+      for (let i = 58; i <= 102; i++) {
+        dresuarHTML += `
+          <div class="modal-img-placeholder">
+            <img src="dresuar/${i}.webp" loading="lazy" alt="Dresuar Projesi ${i}">
+          </div>
+        `;
+      }
+      dresuarGrid.innerHTML = dresuarHTML;
+    }
+    
+  });
+</script>
+</body>
+</html>
